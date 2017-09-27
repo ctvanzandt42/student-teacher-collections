@@ -44,4 +44,31 @@ public class Student {
         this.id = id;
         this.grade = grade;
     }
+
+    @Override
+    public boolean equals(Object e) {
+        if (this == e) return true;
+        if (e == null || getClass() != e.getClass()) return false;
+
+        Student student = (Student) e;
+
+        return (id != student.id);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 31 * id + grade;
+        result = 31 * result + firstName.hashCode();
+        result = 31 * result + lastName.hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Student\n" +
+                "Name: '" + firstName + " " + lastName + "'\n" +
+                "Id: " + id + "\n" +
+                "Grade: " + grade + "\n";
+    }
+
 }
